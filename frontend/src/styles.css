@@ -36,6 +36,7 @@ mat-card {
 
 .mat-mdc-raised-button{
     width: 100%;
+
 }
 
 button{
@@ -44,4 +45,8 @@ button{
 
 .example-spacer{
     flex: 1 1 auto;
+}
+.mat-success {
+  background-color: green;
+  color: #fff;
 }
