@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MaterialModule } from '../../../material.module';
 import { RouterLink } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import { userregister } from '../../model/user.model';
 
 @Component({
   selector: 'app-register',
@@ -29,6 +30,22 @@ export class RegisterComponent {
   })
 
   proccedRegister(){
+
+  if(this._regForm.valid){
+       let _obj:userregister = {
+
+        userName: this._regForm.value.userName as string,
+        name: this._regForm.value.name as string,
+        phone: this._regForm.value.phone as string,
+        email: this._regForm.value.email as string,
+        Password: this._regForm.value.password as string
+
+       }
+  }else{
+    
+  }
+
+
 
   }
 

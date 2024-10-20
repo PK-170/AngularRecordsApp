@@ -1,5 +1,5 @@
 
-export interface user{
+export interface userregister{
 
   userName: string;
   name: string;
