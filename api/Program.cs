@@ -1,9 +1,56 @@
+using api.Data;
+using api.Interfaces;
+using api.Models;
+using api.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddIdentity<AppUser, IdentityRole>(Options =>
+{
+    Options.Password.RequireDigit = true;
+    Options.Password.RequireLowercase = true;
+    Options.Password.RequireUppercase = true;
+    Options.Password.RequireNonAlphanumeric = true;
+    Options.Password.RequiredLength = 10;
+})
+.AddEntityFrameworkStores<ApplicationDBContext>();
+
+builder.Services.AddAuthentication(Options =>
+{
+    Options.DefaultAuthenticateScheme =
+    Options.DefaultChallengeScheme =
+    Options.DefaultForbidScheme =
+    Options.DefaultScheme =
+    Options.DefaultSignInScheme =
+    Options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(Options =>
+{
+    Options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["JWT: Issuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["JWT:"],
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(
+         System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])
+       )
+
+    };
+}
+
+);
+
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 
@@ -23,7 +70,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -35,6 +82,15 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+
+app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
+app.UseAuthentication();
+
+app.UseAuthorization();
+
+app.MapControllers();
 
 app.Run();
 
