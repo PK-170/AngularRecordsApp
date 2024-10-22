@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,39 @@ namespace api.Data
         public ApplicationDBContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
 
+        }
+
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            List<IdentityRole> roles = new List<IdentityRole>
+            {
+                new IdentityRole
+                {
+                    Name = "Admin",
+                    NormalizedName = "ADMIN"
+
+                },
+                new IdentityRole
+                {
+                    Name = "Manager",
+                    NormalizedName = "MANAGER"
+                },
+                new IdentityRole
+                {
+                    Name = "Engineer",
+                    NormalizedName = "ENGINEER"
+                },
+                new IdentityRole
+                {
+                    Name = "Foreman",
+                    NormalizedName = "FOREMAN"
+                },
+            };
+
+            builder.Entity<IdentityRole>().HasData(roles);
         }
 
     }
