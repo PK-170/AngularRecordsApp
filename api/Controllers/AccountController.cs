@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using api.Dtos;
-
 //using api.Dtos.Account;
 using api.Interfaces;
 using api.Models;
@@ -49,7 +43,7 @@ namespace api.Controllers
             if (!result.Succeeded) return BadRequest("UserName not found and/or password is incorrect");
 
             return Ok(
-             new NewUserDto
+             new Dtos.NewUserDto
              {
                  UserName = user.UserName,
                  Email = user.Email,
@@ -59,7 +53,7 @@ namespace api.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
+        public async Task<IActionResult> Register([FromBody] Dtos.RegisterDto registerDto)
         {
             try
             {
@@ -79,7 +73,7 @@ namespace api.Controllers
                     var roleResult = await _userManager.AddToRoleAsync(appUser, "User");
                     if (roleResult.Succeeded)
                         return Ok(
-                            new NewUserDto
+                            new Dtos.NewUserDto
                             {
                                 UserName = appUser.UserName,
                                 Email = appUser.Email,
