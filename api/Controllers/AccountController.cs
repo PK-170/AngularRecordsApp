@@ -9,6 +9,7 @@ using api.Interfaces;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 //using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
@@ -28,6 +29,33 @@ namespace api.Controllers
             _userManager = userManager;
             _tokenService = tokenService;
             _signinManager = signInManager;
+        }
+
+        [HttpPost("login")]
+
+        public async Task<IActionResult> Login(LoginDto loginDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == loginDto.UserName);
+
+            if (user == null) return Unauthorized("Invalid Username!");
+
+            var result = await _signinManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+
+            if (!result.Succeeded) return BadRequest("UserName not found and/or password is incorrect");
+
+            return Ok(
+             new NewUserDto
+             {
+                 UserName = user.UserName,
+                 Email = user.Email,
+                 Token = _tokenService.CreateToken(user)
+             }
+            );
         }
 
         [HttpPost("register")]
@@ -77,4 +105,7 @@ namespace api.Controllers
 
     }
 
+    public class LoginDto
+    {
+    }
 }
