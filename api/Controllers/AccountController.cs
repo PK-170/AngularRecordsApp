@@ -1,10 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using api.Dtos;
 using api.Interfaces;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-//using Microsoft.EntityFrameworkCore;
-using api.Dtos;
 
 
 namespace api.Controllers
@@ -27,6 +30,33 @@ namespace api.Controllers
             _signinManager = signInManager;
         }
 
+
+        [HttpPost("login")]
+
+        public async Task<IActionResult> Login(LoginDto loginDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == loginDto.UserName);
+
+            if (user == null) return Unauthorized("Invalid Username!");
+
+            var result = await _signinManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+
+            if (!result.Succeeded) return BadRequest("UserName not found and/or password is incorrect");
+
+            return Ok(
+             new NewUserDto
+             {
+                 UserName = user.UserName,
+                 Email = user.Email,
+                 Token = _tokenService.CreateToken(user)
+             }
+            );
+        }
 
 
         [HttpPost("register")]
