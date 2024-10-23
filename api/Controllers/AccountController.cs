@@ -1,10 +1,11 @@
-//using api.Dtos.Account;
 using api.Interfaces;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 //using Microsoft.EntityFrameworkCore;
+using api.Dtos;
+
 
 namespace api.Controllers
 {
@@ -15,6 +16,7 @@ namespace api.Controllers
 
         private readonly UserManager<AppUser> _userManager;
         private readonly ITokenService _tokenService;
+        
 
         private readonly SignInManager<AppUser> _signinManager;
 
@@ -33,6 +35,7 @@ namespace api.Controllers
             {
                 return BadRequest(ModelState);
             }
+            
 
             var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == loginDto.UserName);
 
