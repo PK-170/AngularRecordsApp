@@ -1,6 +1,8 @@
 using api.Data;
 using api.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,31 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(Options =>
     Options.Password.RequiredLength = 12;
 })
 .AddEntityFrameworkStores<ApplicationDBContext>();
+
+builder.Services.AddAuthentication(Options =>
+{
+    Options.DefaultAuthenticateScheme =
+    Options.DefaultChallengeScheme =
+    Options.DefaultForbidScheme =
+    Options.DefaultScheme =
+    Options.DefaultSignInScheme =
+    Options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
+
+}).AddJwtBearer(Options =>
+{
+    Options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["JWT:Issuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["JWT:Audience"],
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(
+       System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])
+     )
+
+    };
+});
 
 
 var app = builder.Build();
