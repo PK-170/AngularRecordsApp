@@ -4612,11 +4612,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\AngularRecordsApp\\api\\api.csproj",
+      "projectUniqueName": "c:\\Users\\Admin\\Desktop\\AngularRecordsApp\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\AngularRecordsApp\\api\\api.csproj",
+      "projectPath": "c:\\Users\\Admin\\Desktop\\AngularRecordsApp\\api\\api.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\AngularRecordsApp\\api\\obj\\",
+      "outputPath": "c:\\Users\\Admin\\Desktop\\AngularRecordsApp\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
