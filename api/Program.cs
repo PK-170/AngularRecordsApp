@@ -11,40 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddIdentity<AppUser, IdentityRole>(Options =>
-{
-    Options.Password.RequireDigit = true;
-    Options.Password.RequireLowercase = true;
-    Options.Password.RequireUppercase = true;
-    Options.Password.RequireNonAlphanumeric = true;
-    Options.Password.RequiredLength = 12;
-})
-.AddEntityFrameworkStores<ApplicationDBContext>();
 
-builder.Services.AddAuthentication(Options =>
-{
-    Options.DefaultAuthenticateScheme =
-    Options.DefaultChallengeScheme =
-    Options.DefaultForbidScheme =
-    Options.DefaultScheme =
-    Options.DefaultSignInScheme =
-    Options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
-
-}).AddJwtBearer(Options =>
-{
-    Options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidIssuer = builder.Configuration["JWT:Issuer"],
-        ValidateAudience = true,
-        ValidAudience = builder.Configuration["JWT:Audience"],
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(
-       System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])
-     )
-
-    };
-});
 
 
 
@@ -79,13 +46,7 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
-app.UseHttpsRedirection();
 
-app.UseAuthentication();
-
-app.UseAuthorization();
-
-app.MapControllers();
 
 
 app.Run();
