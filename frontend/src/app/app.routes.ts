@@ -6,7 +6,7 @@ import { LoginComponent } from './component/login/login.component';
 import { ConfirmotpComponent } from './component/confirmotp/confirmotp.component';
 
 export const routes: Routes = [
-  {path:'', component:HomeComponent},
+  {path:'', component:RegisterComponent},
   {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
   {path:'confirmotp', component:ConfirmotpComponent}
