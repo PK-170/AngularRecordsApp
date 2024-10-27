@@ -35,7 +35,7 @@ namespace api.Controllers
                 };
 
                 var createdUser = await _userManager.CreateAsync(appUser, registerDto.Password);
-                
+
                 if(createdUser.Succeeded)
                 {
                     var roleResult = await _userManager.AddToRoleAsync(appUser, "User");
@@ -49,6 +49,21 @@ namespace api.Controllers
                                 Token = _tokenService.CreateToken(appUser)
                             }
                         );
+
+                         }else
+                    {
+                        return StatusCode(500, roleResult.Errors);
+                    }
+                }else
+                {
+                    return StatusCode(500, createdUser.Errors);
+                }
+
+              }catch(Exception e)
+              {
+                  return StatusCode(500, e);
+              }
+         }
         
     }
 }
