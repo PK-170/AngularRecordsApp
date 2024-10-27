@@ -33,6 +33,22 @@ namespace api.Controllers
                     UserName = registerDto.UserName,
                     Email = registerDto.Email
                 };
+
+                var createdUser = await _userManager.CreateAsync(appUser, registerDto.Password);
+                
+                if(createdUser.Succeeded)
+                {
+                    var roleResult = await _userManager.AddToRoleAsync(appUser, "User");
+                    if(roleResult.Succeeded)
+                    {
+                        return Ok(
+                            new NewUserDto
+                            {
+                                UserName = appUser.UserName,
+                                Email = appUser.Email,
+                                Token = _tokenService.CreateToken(appUser)
+                            }
+                        );
         
     }
 }
