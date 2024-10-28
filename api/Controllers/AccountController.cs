@@ -22,6 +22,8 @@ namespace api.Controllers
         public AccountController(UserManager<AppUser> userManager,  ITokenService tokenService, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
+             _tokenService = tokenService;
+            _signinManager = signInManager;
         }
 
 
