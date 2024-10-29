@@ -11,7 +11,7 @@ namespace api.Service
     {
         public string CreateToken(AppUser user)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
