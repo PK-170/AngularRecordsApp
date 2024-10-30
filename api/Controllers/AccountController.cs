@@ -42,6 +42,17 @@ namespace api.Controllers
             if (user == null) return Unauthorized("Invalid Username!");
 
             var result = await _signinManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+
+            if(!result.Succeeded) return BadRequest("UserName not found and/or password is incorrect");
+               
+               return Ok(
+                new NewUserDto
+                {
+                   UserName = user.UserName,
+                   Email = user.Email,
+                   Token = _tokenService.CreateToken(user)
+                }
+               );
         }
 
 
