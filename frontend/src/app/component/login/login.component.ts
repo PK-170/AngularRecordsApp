@@ -4,7 +4,7 @@ import { MaterialModule } from '../../../material.module';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [MaterialModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
