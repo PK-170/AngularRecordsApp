@@ -34,9 +34,10 @@ mat-card {
     display: inline;
 }
 .div-100 {
-    width: 80%;
+    width: 100%;
     margin: 1%;
     display: inline;
+    color: green;
 }
 
 .mat-mdc-raised-button{
