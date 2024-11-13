@@ -12,6 +12,5 @@ namespace api.Models
         public string? Email { get; set; } = string.Empty;
 
         public required string Phone { get; set; } = string.Empty;
-        public bool Favorite { get; set; }
     }
 }
