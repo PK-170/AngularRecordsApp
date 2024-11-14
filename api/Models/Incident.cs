@@ -7,10 +7,11 @@ namespace api.Models
 {
     public class Incident
     {
-         public int Id { get; set; }
-        public required string Name { get; set; } = string.Empty;
-        public string? Email { get; set; } = string.Empty;
+        public int Id { get; set; }
+        
+        public DateTime Date { get; set; }
 
-        public required string Phone { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
+
     }
 }
