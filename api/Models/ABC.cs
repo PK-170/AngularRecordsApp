@@ -8,9 +8,19 @@ namespace api.Models
     public class ABC
     {
         public int Id { get; set; }
+        
         public DateTime Date { get; set; }
-        public string? Email { get; set; } = string.Empty;
 
-        public required string Phone { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
+
+        public string Subtype { get; set; } = string.Empty;
+
+        public string ReportedBy { get; set; } = string.Empty;
+        public string Project { get; set; } = string.Empty;
+
+        public string SpecificLocation { get; set; } = string.Empty;
+
+        public string ActivityObserved { get; set; } = string.Empty;
+
     }
 }
