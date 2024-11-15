@@ -13,7 +13,7 @@ namespace api.Models
 
         public string Type { get; set; } = string.Empty;
 
-        public string HazardObserved { get; set; } = string.Empty;
+      
 
     }
 }
