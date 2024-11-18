@@ -20,7 +20,6 @@ namespace api.Models
 
         public string SpecificLocation { get; set; } = string.Empty;
 
-        public string ActivityObserved { get; set; } = string.Empty;
 
     }
 }
