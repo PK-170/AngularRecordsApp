@@ -7,7 +7,6 @@ namespace api.Models
 {
     public class ABC
     {
-        public int Id { get; set; }
         
         public DateTime Date { get; set; }
 
