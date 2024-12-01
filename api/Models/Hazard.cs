@@ -7,7 +7,7 @@ namespace api.Models
 {
     public class Hazard
     {
-        public int Id { get; set; }
+        
         
         public DateTime Date { get; set; }
 
