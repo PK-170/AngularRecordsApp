@@ -20,7 +20,7 @@ namespace api.Models
 
         
 
-        public string ActivityObserved { get; set; } = string.Empty;
+       
 
     }
 }
