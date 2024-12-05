@@ -13,7 +13,7 @@ namespace api.Models
 
         public string Type { get; set; } = string.Empty;
 
-        public string Subtype { get; set; } = string.Empty;
+        
 
         public string ReportedBy { get; set; } = string.Empty;
         
