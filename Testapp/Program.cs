@@ -17,6 +17,13 @@ Console.WriteLine(a);
 StringBuilder stringBuilder = new StringBuilder();
 
 stringBuilder.Append("Crab is good");
+stringBuilder.Remove(0,3);
 
 
 Console.WriteLine(stringBuilder);
+
+string[] arr = ["apple", "Banana", "Carrot"];
+foreach(var item in arr)
+{
+    Console.WriteLine(item);
+}
