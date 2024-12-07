@@ -1,0 +1,15 @@
+/Users/mount/Desktop/AngularRecordsApp/Testapp/bin/Debug/net8.0/Testapp
+/Users/mount/Desktop/AngularRecordsApp/Testapp/bin/Debug/net8.0/Testapp.deps.json
+/Users/mount/Desktop/AngularRecordsApp/Testapp/bin/Debug/net8.0/Testapp.runtimeconfig.json
+/Users/mount/Desktop/AngularRecordsApp/Testapp/bin/Debug/net8.0/Testapp.dll
+/Users/mount/Desktop/AngularRecordsApp/Testapp/bin/Debug/net8.0/Testapp.pdb
+/Users/mount/Desktop/AngularRecordsApp/Testapp/obj/Debug/net8.0/Testapp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mount/Desktop/AngularRecordsApp/Testapp/obj/Debug/net8.0/Testapp.AssemblyInfoInputs.cache
+/Users/mount/Desktop/AngularRecordsApp/Testapp/obj/Debug/net8.0/Testapp.AssemblyInfo.cs
+/Users/mount/Desktop/AngularRecordsApp/Testapp/obj/Debug/net8.0/Testapp.csproj.CoreCompileInputs.cache
+/Users/mount/Desktop/AngularRecordsApp/Testapp/obj/Debug/net8.0/Testapp.sourcelink.json
+/Users/mount/Desktop/AngularRecordsApp/Testapp/obj/Debug/net8.0/Testapp.dll
+/Users/mount/Desktop/AngularRecordsApp/Testapp/obj/Debug/net8.0/refint/Testapp.dll
+/Users/mount/Desktop/AngularRecordsApp/Testapp/obj/Debug/net8.0/Testapp.pdb
+/Users/mount/Desktop/AngularRecordsApp/Testapp/obj/Debug/net8.0/Testapp.genruntimeconfig.cache
+/Users/mount/Desktop/AngularRecordsApp/Testapp/obj/Debug/net8.0/ref/Testapp.dll
