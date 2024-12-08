@@ -32,3 +32,7 @@ for(var i=0; i<arr.Length; i++)
 {
     Console.WriteLine(arr[i]);
 }
+
+arr.ToList().ForEach((x)=> 
+{Console.WriteLine(x);
+});
