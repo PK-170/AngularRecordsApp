@@ -37,3 +37,4 @@ arr.ToList().ForEach((x)=>
 {Console.WriteLine(x);
 });
 
+Array.ForEach(arr, x=> Console.WriteLine(x));
