@@ -27,3 +27,8 @@ foreach(var item in arr)
 {
     Console.WriteLine(item);
 }
+
+for(var i=0; i<arr.Length; i++)
+{
+    Console.WriteLine(arr[i]);
+}
