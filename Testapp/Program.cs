@@ -38,3 +38,13 @@ arr.ToList().ForEach((x)=>
 });
 
 Array.ForEach(arr, x=> Console.WriteLine(x));
+
+var FishTank = 100;
+if(FishTank <= 100)
+{
+    Console.WriteLine("I'll buy fish");
+}
+else
+{
+    Console.WriteLine("I'll skip");
+}
