@@ -54,3 +54,10 @@ if(isString is string)
 {
     Console.WriteLine("Its a string for sure");
 }
+
+enum Warning
+{
+    CodeRed,
+    CodeBlue,
+    CodeYellow
+}
