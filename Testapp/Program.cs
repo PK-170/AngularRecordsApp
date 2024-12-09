@@ -61,3 +61,5 @@ enum Warning
     CodeBlue,
     CodeYellow
 }
+
+Console.WriteLine(Warning.CodeBlue);
