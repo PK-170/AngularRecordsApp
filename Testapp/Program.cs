@@ -48,3 +48,9 @@ else
 {
     Console.WriteLine("I'll skip");
 }
+
+var isString = "Fish is a string";
+if(isString is string)
+{
+    Console.WriteLine("Its a string for sure");
+}
