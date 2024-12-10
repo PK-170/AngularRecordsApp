@@ -69,4 +69,6 @@ var name = "Ming";
 var result = name switch 
 {
     "Zihan" => "Zihan",
+    "Ming" => "Ming",
+    - => "nothing match",
 }
