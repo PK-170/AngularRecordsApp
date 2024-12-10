@@ -71,4 +71,6 @@ var result = name switch
     "Zihan" => "Zihan",
     "Ming" => "Ming",
     _ => "nothing match",
-}
+};
+
+Console.WriteLine( "This is from switch" + result);
