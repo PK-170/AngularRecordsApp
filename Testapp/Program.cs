@@ -55,6 +55,8 @@ if(isString is string)
     Console.WriteLine("Its a string for sure");
 }
 
+
+Console.WriteLine((int)Warning.CodeBlue);
 enum Warning
 {
     CodeRed,
@@ -62,4 +64,9 @@ enum Warning
     CodeYellow
 }
 
-Console.WriteLine(Warning.CodeBlue);
+var name = "Ming";
+
+var result = name switch 
+{
+    
+}
