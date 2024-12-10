@@ -70,5 +70,5 @@ var result = name switch
 {
     "Zihan" => "Zihan",
     "Ming" => "Ming",
-    - => "nothing match",
+    _ => "nothing match",
 }
