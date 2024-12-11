@@ -3,13 +3,14 @@ using System.Text;
 using System.Net.NetworkInformation;
 
 Ping p1 = new Ping();
+PingReply PR =  p1.Send("8.8.8.8");
 
 
 
 
 
 // See https://aka.ms/new-console-template for more information
-// Console.WriteLine("Hello, World!!");
+ Console.WriteLine("Hello, World!!");
 
 // string bill = "This is a test";
 // int num = 1;
