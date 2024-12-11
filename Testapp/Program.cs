@@ -5,7 +5,10 @@ using System.Net.NetworkInformation;
 Ping p1 = new Ping();
 PingReply PR =  p1.Send("8.8.8.8");
 
+while(PR.Status.ToString() == "Success")
+{
 
+}
 
 
 
