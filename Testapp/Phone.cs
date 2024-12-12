@@ -8,5 +8,6 @@ namespace Testapp
     public class Phone
     {
         public string Brand { get; set; }
+        public int Price { get; set; }
     }
 }
