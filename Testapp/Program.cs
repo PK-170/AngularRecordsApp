@@ -19,7 +19,7 @@ Phome phome = new Phome();
 phome.Brand = "Iphone";
 
 
-// See https://aka.ms/new-console-template for more information
+
 
 
 // string bill = "This is a test";
