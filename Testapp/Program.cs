@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Net.NetworkInformation;
-using Phone;
+
 
 Ping p1 = new Ping();
 PingReply PR =  p1.Send("8.8.8.8");
@@ -16,10 +16,11 @@ PingReply PR =  p1.Send("8.8.8.8");
 // }
 
 Phome phome = new Phome();
+phome.Brand = "Iphone";
 
 
 // See https://aka.ms/new-console-template for more information
- Console.WriteLine("Hello, World!!");
+ Console.WriteLine(phome.Brand);
 
 // string bill = "This is a test";
 // int num = 1;
