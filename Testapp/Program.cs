@@ -20,7 +20,7 @@ phome.Brand = "Iphone";
 
 
 // See https://aka.ms/new-console-template for more information
- Console.WriteLine(phome.Brand);
+
 
 // string bill = "This is a test";
 // int num = 1;
