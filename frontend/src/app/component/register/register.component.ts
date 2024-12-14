@@ -14,6 +14,8 @@ import { userregister } from '../../model/user.model';
 })
 export class RegisterComponent {
 
+  title = "Hello World";
+
 
   constructor(private builder: FormBuilder) {
 
